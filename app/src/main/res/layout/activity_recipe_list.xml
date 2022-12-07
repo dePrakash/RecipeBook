@@ -9,6 +9,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/search_container"
+        android:hint="Search Your Favorite Recipes"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toStartOf="@id/search_button"
@@ -17,6 +18,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/search"
+            android:background="#5446B6E8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text" />
@@ -26,6 +28,7 @@
         android:id="@+id/search_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/shapes"
         android:text="Search"
         app:icon="@drawable/ic_baseline_search_24"
         app:layout_constraintEnd_toEndOf="parent"

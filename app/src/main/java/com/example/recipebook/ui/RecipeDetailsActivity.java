@@ -5,10 +5,12 @@ import static android.content.ContentValues.TAG;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -39,17 +41,15 @@ public class RecipeDetailsActivity extends AppCompatActivity {
 
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe_details);
 
+                                            //down blow the onResult method ::v
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         api = RetrofitClient.getInstance().create(RecipeApi.class);
-
-//        TextView text = (TextView) findViewById(R.id.test);
-
-//        RecipeRepository recipeRepository = new RecipeRepository();
 
         String id = getIntent().getStringExtra("id");
 
@@ -64,41 +64,32 @@ public class RecipeDetailsActivity extends AppCompatActivity {
 
 
     private void  getList(String id) {
-//        RecipeRepository.OnResult OnResult = null;
         new RecipeRepository().getDetails(id, new RecipeRepository.OnDetailResult(){
 
 
             @Override
             public void onResult(RecipeDetails details) {
-//                System.out.println("okkkktest" + details.component15());
+
+                getSupportActionBar().setTitle(""+details.component31());  // here we are set recipe name in the action bar
+
+                TextView textView = (TextView) findViewById(R.id.summery);              // get recipe instruction from api
+                textView.setText(Html.fromHtml("<html><body>"+ details.getInstructions()+"</body></html>"));    //
+
+
+                Log.d(TAG, "Summary: " + details.component29());
 
                 TextView text = (TextView) findViewById(R.id.heading);
-                text.setText("Title "+details.component26());
+                text.setText(" "+details.component26());
 
                 TextView text3 = (TextView) findViewById(R.id.title_d);
-                text3.setText(""+details.component31());
-
-                TextView title = (TextView) findViewById(R.id.summery);
-                title.setText("Summery "+details.component29());
-
-
-
+                text3.setText(" "+details.component31());
 
 
                 ImageView image = (ImageView) findViewById(R.id.imageView);
 
                 Picasso.get().load(details.component15()).into(image);
-//                image.setImageDrawable(details.component15());
-
-//                image.setImageBitmap(getBitmapFromURL(""+details.component15()));
-//                Bitmap tesdd = getBitmapFromURL(details.component15());
-//                Log.d(TAG, "onResuliiiiiiiiiiiiit: " + tesdd);
-
-
 
             }
-
-
             @Override
             public void onError(String errorMessage) {
 
@@ -106,23 +97,4 @@ public class RecipeDetailsActivity extends AppCompatActivity {
         });
     }
 
-
-
-//    public static Bitmap getBitmapFromURL(String src) {
-//        try {
-//            Log.e("src",src);
-//            URL url = new URL(src);
-//            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-//            connection.setDoInput(true);
-//            connection.connect();
-//            InputStream input = connection.getInputStream();
-//            Bitmap myBitmap = BitmapFactory.decodeStream(input);
-//            Log.e("Bitmap","returned");
-//            return myBitmap;
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//            Log.e("Exception",e.getMessage());
-//            return null;
-//        }
-//    }
 }

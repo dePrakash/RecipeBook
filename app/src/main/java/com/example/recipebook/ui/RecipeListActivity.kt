@@ -6,6 +6,9 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.LinearLayout
 import android.widget.Toast
+
+import android.widget.EditText;
+
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recipebook.R
@@ -28,6 +31,8 @@ class RecipeListActivity : AppCompatActivity(), Adapter.OnItemClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recipe_list)
+
+        supportActionBar?.title = "Home"
 
         listAdapter = Adapter(this, this)
         val retrofit = RetrofitClient.getInstance()
