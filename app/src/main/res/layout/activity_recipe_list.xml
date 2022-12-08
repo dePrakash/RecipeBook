@@ -45,4 +45,15 @@
         app:layout_constraintTop_toBottomOf="@id/search_container"
         tools:listitem="@layout/list_item" />
 
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:layout_width="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/progress"
+        android:indeterminate="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="wrap_content"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
