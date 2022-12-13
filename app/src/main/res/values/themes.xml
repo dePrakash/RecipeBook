@@ -15,10 +15,19 @@
 
 
         <!-- SplashScreen -->
-<!--        <style name="SplashScreen" parent="Theme.MaterialComponents.DayNight.NoActionBar">-->
-<!--            <item name="android:windowBackground">@drawable/background_splashscrreen</item>-->
-<!--            <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>-->
-<!--        </style>-->
+        <!--        <style name="SplashScreen" parent="Theme.MaterialComponents.DayNight.NoActionBar">-->
+        <!--            <item name="android:windowBackground">@drawable/background_splashscrreen</item>-->
+        <!--            <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>-->
+        <!--        </style>-->
 
     </style>
+
+    <style name="Theme.RecipeBook.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.RecipeBook.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.RecipeBook.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
