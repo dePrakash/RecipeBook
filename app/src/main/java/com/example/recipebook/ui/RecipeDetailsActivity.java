@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,9 +43,14 @@ import java.util.zip.Inflater;
 
 import retrofit2.Call;
 
-public class RecipeDetailsActivity<favorite> extends AppCompatActivity {
+public class RecipeDetailsActivity<favorite, override> extends AppCompatActivity {
      RecipeApi api;
      CircularProgressIndicator progress_d;  //progress_d
+
+    public String  heading = "";     //  dp  step 1
+    public String  title = "";       //  dp  step 2
+    public String  image_url = "";   //  dp  step 3
+    public String  instruction = ""; //  dp  step 4
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +71,9 @@ public class RecipeDetailsActivity<favorite> extends AppCompatActivity {
 //        text.setText(getIntent().getStringExtra("id"));
         getList(id);
 
+
+
+       
     }
 
     @Override
@@ -76,20 +85,21 @@ public class RecipeDetailsActivity<favorite> extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         int id = item.getItemId();
-//        long result = db.insert(TABLE_NAME, null, cv);
-        if(id == 1) {
-
-//            Intent intent = new Intent(RecipeDetailsActivity.this,Favorite_List.class);
-//            startActivity(intent);
-
-            Toast.makeText(this, "Added Your Favorite", Toast.LENGTH_SHORT).show();
-
+        // <--- dp  start step 9
+        if (id == R.id.main_list) {
+            MyDataBaseHelper myDB = new MyDataBaseHelper(RecipeDetailsActivity.this);
+            myDB.addToFavorite(heading.trim() , image_url.trim() , title.trim()  ,instruction.trim());
+            Log.d(TAG, "onOptionsItemSelected:   ===========   >>>>>>   " + heading);
             return true;
         }
+        // dp end of step 9 --->
+
         return super.onOptionsItemSelected(item);
     }
+
+
+  
 
 //    @Override
 //    public boolean onOptionsItemSelected(MenuItem item) {
@@ -120,20 +130,21 @@ public class RecipeDetailsActivity<favorite> extends AppCompatActivity {
 
                 TextView textView = (TextView) findViewById(R.id.summery);              // get recipe instruction from api
                 textView.setText(Html.fromHtml("<html><body>"+ details.getInstructions()+"</body></html>"));    //
-
+                instruction = ""+details.getInstructions();    // global access dp step 5
 
                 Log.d(TAG, "Summary: " + details.component29());
 
                 TextView text = (TextView) findViewById(R.id.heading);
-                text.setText(" "+details.component26());
+                text.setText(""+details.component26());
+                heading = ""+details.component26();            // global access dp step 6
 
                 TextView text3 = (TextView) findViewById(R.id.title_d);
                 text3.setText(" "+details.component31());
-
+                title = ""+details.component31();              // global access dp step 7
 
                 ImageView image = (ImageView) findViewById(R.id.imageView);
-
                 Picasso.get().load(details.component15()).into(image);
+                image_url = ""+details.component31();          // global access dp step 8
 
             }
             @Override
