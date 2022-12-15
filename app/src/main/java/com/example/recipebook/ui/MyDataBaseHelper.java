@@ -5,11 +5,18 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import com.example.recipebook.data.RecipeListItem;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class MyDataBaseHelper extends SQLiteOpenHelper {
+
 
     private Context context;
     private static final String DATABASE_NAME = "RecipeList.db";
@@ -47,29 +54,51 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
 
     }
 
-// <--- start step 1 for add or insert
-    void addToFavorite(String HEADING , String IMAGE , String NAME ,String INSTRUCTIONS ){
-        SQLiteDatabase db =this.getWritableDatabase();
+    // <--- start step 1 for add or insert
+    void addToFavorite(String HEADING, String IMAGE, String NAME, String INSTRUCTIONS) {
+        Log.d("SQLITE", "Adding fav into db");
+        Log.d("SQLITE", HEADING + "," + IMAGE + "," + NAME + "," + INSTRUCTIONS);
+
+        SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COLUMN_HEADING, HEADING);
         cv.put(COLUMN_IMAGE, IMAGE);
         cv.put(COLUMN_NAME, NAME);
         cv.put(COLUMN_INSTRUCTIONS, INSTRUCTIONS);
-        long result = db.insert(TABLE_NAME, null,cv);
+        long result = db.insert(TABLE_NAME, null, cv);
 
     } // end step 1 --->
 
 
     // <--- start step 1  get or read
-    Cursor readFavoriteData(){
+    List<RecipeListItem> readFavoriteData() {
         String query = "SELECT * FROM " + TABLE_NAME;
         SQLiteDatabase db = this.getReadableDatabase();
+
         Cursor cursor = null;
-        if(db != null){
+        if (db != null) {
             cursor = db.rawQuery(query, null);
         }
-        return cursor;
+        List<RecipeListItem> list = new ArrayList<>();
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                String id = cursor.getString(0);
+                String image = cursor.getString(2);
+                String name = cursor.getString(3);
+                list.add(new RecipeListItem(id, image, null, name));
+            } while (cursor.moveToNext());
+
+            cursor.close();
+        }
+        if (db != null) {
+            db.close();
+        }
+        return list;
     }
+
+//    public Cursor readAllData() {
+//        return null;
+//    }
     // end step 1 --->
 
 }

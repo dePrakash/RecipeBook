@@ -25,7 +25,6 @@ class RecipeListActivity : AppCompatActivity(), Adapter.OnItemClickListener {
     lateinit var listAdapter: Adapter
     lateinit var progress: CircularProgressIndicator            //progress
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recipe_list)

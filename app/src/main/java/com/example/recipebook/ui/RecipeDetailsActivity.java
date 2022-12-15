@@ -65,15 +65,11 @@ public class RecipeDetailsActivity<favorite, override> extends AppCompatActivity
         api = RetrofitClient.getInstance().create(RecipeApi.class);
 
         String id = getIntent().getStringExtra("id");
-
 //        recipeRepository.getDetails(id ,OnResult);
 
 //        text.setText(getIntent().getStringExtra("id"));
         getList(id);
 
-
-
-       
     }
 
     @Override
@@ -135,16 +131,16 @@ public class RecipeDetailsActivity<favorite, override> extends AppCompatActivity
                 Log.d(TAG, "Summary: " + details.component29());
 
                 TextView text = (TextView) findViewById(R.id.heading);
-                text.setText(""+details.component26());
-                heading = ""+details.component26();            // global access dp step 6
+                text.setText(""+details.getSourceName());
+                heading = ""+details.getSourceName();            // global access dp step 6
 
                 TextView text3 = (TextView) findViewById(R.id.title_d);
-                text3.setText(" "+details.component31());
-                title = ""+details.component31();              // global access dp step 7
+                text3.setText(" "+details.getTitle());
+                title = ""+details.getTitle();              // global access dp step 7
 
                 ImageView image = (ImageView) findViewById(R.id.imageView);
-                Picasso.get().load(details.component15()).into(image);
-                image_url = ""+details.component31();          // global access dp step 8
+                Picasso.get().load(details.getImage()).into(image);
+                image_url = ""+details.getImage();          // global access dp step 8
 
             }
             @Override

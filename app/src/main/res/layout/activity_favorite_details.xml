@@ -7,9 +7,9 @@
     tools:context=".ui.Favorite_Details">
 
     <TextView
-        android:id="@+id/heading"
-        android:layout_width="391dp"
-        android:layout_height="62dp"
+        android:id="@+id/heading_fav"
+        android:layout_width="400dp"
+        android:layout_height="60dp"
         android:text="head"
         android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,7 +20,7 @@
         app:layout_constraintVertical_bias="0.027" />
 
     <TextView
-        android:id="@+id/title_d"
+        android:id="@+id/title_fav"
         android:layout_width="379dp"
         android:layout_height="65dp"
         android:layout_marginTop="20dp"
@@ -29,20 +29,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.531"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView_fav" />
 
     <ScrollView
-        android:id="@+id/scrollable"
+        android:id="@+id/scrollable_fav"
         android:layout_width="367dp"
         android:layout_height="281dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_d"
+        app:layout_constraintTop_toBottomOf="@+id/title_fav"
         app:layout_constraintVertical_bias="0.309">
 
         <TextView
-            android:id="@+id/summery"
+            android:id="@+id/summery_fav"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -57,14 +57,14 @@
     </ScrollView>
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageView_fav"
         android:layout_width="387dp"
         android:layout_height="235dp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/heading"
+        app:layout_constraintTop_toBottomOf="@+id/heading_fav"
         tools:srcCompat="@tools:sample/avatars" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
