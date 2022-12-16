@@ -23,7 +23,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     Context context;
     OnItemClickListener listener;
 
-    public Adapter(Context context, OnItemClickListener listener) {
+ public Adapter(Context context, OnItemClickListener listener) {
         this.context = context;
         this.listener = listener;
     }

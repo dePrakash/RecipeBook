@@ -23,11 +23,10 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
     private static final String TABLE_NAME = "my_recipes";
-    private static final String COLUMN_ID = "_id";
-    private static final String COLUMN_HEADING = "heading";
-    private static final String COLUMN_IMAGE = "image";
-    private static final String COLUMN_NAME = "name";
-    private static final String COLUMN_INSTRUCTIONS = "instructions";
+    private static final String COLUMN_ID = "id";
+    private static final String COLUMN_HEADING = "image";
+    private static final String COLUMN_IMAGE = "imageType";
+    private static final String COLUMN_NAME = "title";
 
     public MyDataBaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -36,13 +35,11 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-
         String query = "CREATE TABLE " + TABLE_NAME +
                 " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_HEADING + " TEXT," +
                 COLUMN_IMAGE + " TEXT," +
-                COLUMN_NAME + " TEXT," +
-                COLUMN_INSTRUCTIONS + " TEXT); ";
+                COLUMN_NAME + " TEXT);";
         db.execSQL(query);
 
     }
@@ -55,16 +52,16 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
     }
 
     // <--- start step 1 for add or insert
-    void addToFavorite(String HEADING, String IMAGE, String NAME, String INSTRUCTIONS) {
+    void addToFavorite(String HEADING, String IMAGE, String NAME) {
         Log.d("SQLITE", "Adding fav into db");
-        Log.d("SQLITE", HEADING + "," + IMAGE + "," + NAME + "," + INSTRUCTIONS);
+        Log.d("SQLITE", HEADING + "," + IMAGE + "," + NAME );
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put(COLUMN_HEADING, HEADING);
+        cv.put(COLUMN_HEADING, IMAGE);
         cv.put(COLUMN_IMAGE, IMAGE);
         cv.put(COLUMN_NAME, NAME);
-        cv.put(COLUMN_INSTRUCTIONS, INSTRUCTIONS);
+
         long result = db.insert(TABLE_NAME, null, cv);
 
     } // end step 1 --->
@@ -83,7 +80,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         if (cursor != null && cursor.moveToFirst()) {
             do {
                 String id = cursor.getString(0);
-                String image = cursor.getString(2);
+                String image = cursor.getString(1);
                 String name = cursor.getString(3);
                 list.add(new RecipeListItem(id, image, null, name));
             } while (cursor.moveToNext());
@@ -99,6 +96,6 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
 //    public Cursor readAllData() {
 //        return null;
 //    }
-    // end step 1 --->
+                        // End step 1 --->
 
 }

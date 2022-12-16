@@ -55,6 +55,9 @@ public class RecipeDetailsActivity<favorite, override> extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        MyDataBaseHelper mdb = new MyDataBaseHelper(this);
+
         setContentView(R.layout.activity_recipe_details);
 
         progress_d = findViewById(R.id.progress_d);           //progress_d
@@ -85,7 +88,7 @@ public class RecipeDetailsActivity<favorite, override> extends AppCompatActivity
         // <--- dp  start step 9
         if (id == R.id.main_list) {
             MyDataBaseHelper myDB = new MyDataBaseHelper(RecipeDetailsActivity.this);
-            myDB.addToFavorite(heading.trim() , image_url.trim() , title.trim()  ,instruction.trim());
+            myDB.addToFavorite(heading.trim() , image_url.trim() , title.trim() );
             Log.d(TAG, "onOptionsItemSelected:   ===========   >>>>>>   " + heading);
             return true;
         }
