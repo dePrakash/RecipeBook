@@ -47,7 +47,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
 
         api = RetrofitClient.getInstance().create(RecipeApi.class);
 
-        String id = getIntent().getStringExtra("id");    //try this..........................................
+        String id = getIntent().getStringExtra("id");    //try this......
 //        recipeRepository.getDetails(id ,OnResult);
 
 //        text.setText(getIntent().getStringExtra("id"));
@@ -103,10 +103,6 @@ public class RecipeDetailsActivity extends AppCompatActivity {
                 ImageView image = (ImageView) findViewById(R.id.imageView);
                 Picasso.get().load(details.getImage()).into(image);
                 image_url = ""+details.getImage();          // global access dp step 8
-
-                TextView text3 = (TextView) findViewById(R.id.summery);
-                text3.setText(" "+details.getInstructions());
-                instruction = ""+details.getInstructions();
             }
             @Override
             public void onError(String errorMessage) {

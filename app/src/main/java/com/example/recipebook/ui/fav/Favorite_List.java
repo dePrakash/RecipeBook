@@ -72,26 +72,23 @@ public class Favorite_List extends AppCompatActivity implements Adapter.OnItemCl
     @Override
     public void onClick(RecipeListItem item) {
 
-//        Log.d(TAG, "onClick: test ====> " + item);
+//      Send to fav_details
         Intent intent = new Intent(this, Favorite_Details.class);
         intent.putExtra("id",item.getId());            // <---Value pass to fav details activity Using Intent.
         intent.putExtra("heading",item.getSourceName());
         intent.putExtra("image",item.getImage());
         intent.putExtra("image_type",item.getImageType());
         intent.putExtra("title",item.getTitle());
-//        intent.putExtra("title","test");
-        intent.putExtra("instruction",item.getInstruction());
+//        intent.putExtra("instruction","test");
+        intent.putExtra("instruction",item.getInstructions());
 
-        Log.d(TAG, "onClick: test single === > " + item.getTitle());
+//        Log.d(TAG, "onClick:  summery========================================> " + item.getInstructions());
+
+//        Log.d(TAG, "onClick: test single === > " + item.getTitle());
         startActivity(intent);
 
 
 //        Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
-
-//        TextView textView = (TextView) findViewById(R.id.summery);
-//        textView.setText(Html.fromHtml("<html><body>"+""+"</body></html>"));
-//        Log.d(TAG, "StoreDataInArrays: " + summery);
-//       // instruction = ""+item.getInstructions();
 
     }
 

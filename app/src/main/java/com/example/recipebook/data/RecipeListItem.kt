@@ -14,7 +14,8 @@ data class RecipeListItem(
     val imageType: String?,
     @SerializedName("title")
     val title: String?,
-    @SerializedName("instruction")
-    val instruction: String?
+    @SerializedName("instructions")
+    val instructions: String?
+
 
 )

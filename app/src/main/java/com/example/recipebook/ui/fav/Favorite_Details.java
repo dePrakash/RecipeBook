@@ -25,26 +25,26 @@ public class Favorite_Details extends AppCompatActivity {
         setContentView(R.layout.activity_favorite_details);
         getSupportActionBar().setTitle("My Favorite Details");
 
-
-
+        // fav_details used id lists
         heading_fav_details = findViewById(R.id.heading_fav);
         title_fav_details = findViewById(R.id.title_fav);
         summery_fav_details = findViewById(R.id.summery_fav);
         imageView_fav_details = findViewById(R.id.imageView_fav);
         getAndSetIntentData();
-
-//
-
     }
 
     void getAndSetIntentData(){
-        heading = getIntent().getStringExtra("heading");
+        //getString
+        heading = getIntent().getStringExtra("title");    //<---- because it's show image url
         image = getIntent().getStringExtra("image") ;
         title  =   getIntent().getStringExtra("title");
-        summery = getIntent().getStringExtra("summery");
-        Log.d(TAG, "getAndSetIntentData: =====> " + heading);
+        summery = getIntent().getStringExtra("instruction");
+
+        //setString
+        Log.d(TAG, "getAndSetIntentData: =====> " + heading); //log check
         heading_fav_details.setText(heading);
         summery_fav_details.setText(summery);
+        Log.d(TAG, "getAndSetIntentData: ===================================>" + summery);   //instruction from fav_list
         Picasso.get().load(image).into(imageView_fav_details);
         title_fav_details.setText(title);
 
@@ -54,7 +54,7 @@ public class Favorite_Details extends AppCompatActivity {
 
 //            image = getIntent().getStringExtra("image");
 //            title = getIntent().getStringExtra("title");
-//            summery = getIntent().getStringExtra("summery");
+ //           summery = getIntent().getStringExtra("summery");
 
 
 //           heading_fav_details.setText(heading);

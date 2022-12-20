@@ -1,5 +1,7 @@
 package com.example.recipebook.data;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -57,7 +59,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
     // <--- start step 1 for add or insert
     public void addToFavorite(String HEADING, String IMAGE, String NAME , String INSTRUCTIONS) {
         Log.d("SQLITE", "Adding fav into db");
-        Log.d("SQLITE", HEADING + "," + IMAGE + "," + NAME + "," + INSTRUCTIONS );
+        Log.d("SQLITE", HEADING + "," + IMAGE + "," + NAME + "," + INSTRUCTIONS + "," );
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -89,7 +91,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
                 String name = cursor.getString(3);
                 String instructions = cursor.getString(4);
 
-                list.add(new RecipeListItem(id,heading, image, null, name, instructions));
+                list.add(new RecipeListItem(id , heading, image, null, name, instructions));
             } while (cursor.moveToNext());
 
             cursor.close();
@@ -98,6 +100,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
             db.close();
         }
         return list;
+
     }
 
 //    public Cursor readAllData() {
