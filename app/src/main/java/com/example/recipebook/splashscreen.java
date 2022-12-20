@@ -6,8 +6,7 @@ import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.recipebook.ui.MainActivity;
-import com.example.recipebook.ui.RecipeListActivity;
+import com.example.recipebook.ui.recipelist.RecipeListActivity;
 
 public class splashscreen extends AppCompatActivity {
 

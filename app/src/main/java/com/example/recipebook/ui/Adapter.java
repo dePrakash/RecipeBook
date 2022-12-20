@@ -1,6 +1,7 @@
 package com.example.recipebook.ui;
 
 import android.content.Context;
+import android.telecom.Call;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,6 +34,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.list_item, parent, false);
         return new ViewHolder(view);
+
     }
 
     @Override
@@ -55,6 +57,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                 listener.onClick(item);
             });
         }
+
     }
 
     @Override

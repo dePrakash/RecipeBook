@@ -1,4 +1,4 @@
-package com.example.recipebook.ui
+package com.example.recipebook.ui.recipelist
 
 import android.content.Intent
 import android.os.Bundle
@@ -16,6 +16,8 @@ import com.example.recipebook.data.RecipeListItem
 import com.example.recipebook.data.RecipeRepository
 import com.example.recipebook.data.RecipeRepository.OnResult
 import com.example.recipebook.data.RetrofitClient
+import com.example.recipebook.ui.Adapter
+import com.example.recipebook.ui.fav.Favorite_List
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.progressindicator.CircularProgressIndicator
 import com.google.android.material.textfield.TextInputEditText

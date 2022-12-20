@@ -36,7 +36,7 @@ data class RecipeDetails(
     val image: String?,
     @SerializedName("imageType")
     val imageType: String?,
-        @SerializedName("instructions")
+    @SerializedName("instructions")
     val instructions: String?,
     @SerializedName("license")
     val license: String?,

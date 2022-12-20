@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.Favorite_Details">
+    tools:context=".ui.fav.Favorite_Details">
 
     <TextView
         android:id="@+id/heading_fav"
         android:layout_width="400dp"
         android:layout_height="60dp"
-        android:text="head"
+        android:text="hhhhhhhhhh"
         android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,7 +24,7 @@
         android:layout_width="379dp"
         android:layout_height="65dp"
         android:layout_marginTop="20dp"
-        android:text="ttl"
+        android:text="ttttttttttt"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.531"
@@ -46,7 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text=""
+            android:text="sum"
             android:textSize="20dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"

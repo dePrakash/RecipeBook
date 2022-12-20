@@ -1,4 +1,4 @@
-package com.example.recipebook.ui;
+package com.example.recipebook.data;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -24,9 +24,11 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
 
     private static final String TABLE_NAME = "my_recipes";
     private static final String COLUMN_ID = "id";
-    private static final String COLUMN_HEADING = "image";
+    private static final String COLUMN_HEADING = "image";     // <--heading
     private static final String COLUMN_IMAGE = "imageType";
     private static final String COLUMN_NAME = "title";
+    private static final String COLUMN_INSTRUCTION = "instructions";
+
 
     public MyDataBaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -39,7 +41,8 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
                 " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_HEADING + " TEXT," +
                 COLUMN_IMAGE + " TEXT," +
-                COLUMN_NAME + " TEXT);";
+                COLUMN_NAME + " TEXT," +
+                COLUMN_INSTRUCTION + " TEXT);";
         db.execSQL(query);
 
     }
@@ -52,15 +55,16 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
     }
 
     // <--- start step 1 for add or insert
-    void addToFavorite(String HEADING, String IMAGE, String NAME) {
+    public void addToFavorite(String HEADING, String IMAGE, String NAME , String INSTRUCTIONS) {
         Log.d("SQLITE", "Adding fav into db");
-        Log.d("SQLITE", HEADING + "," + IMAGE + "," + NAME );
+        Log.d("SQLITE", HEADING + "," + IMAGE + "," + NAME + "," + INSTRUCTIONS );
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COLUMN_HEADING, IMAGE);
         cv.put(COLUMN_IMAGE, IMAGE);
         cv.put(COLUMN_NAME, NAME);
+        cv.put(COLUMN_INSTRUCTION, INSTRUCTIONS);
 
         long result = db.insert(TABLE_NAME, null, cv);
 
@@ -68,7 +72,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
 
 
     // <--- start step 1  get or read
-    List<RecipeListItem> readFavoriteData() {
+   public List<RecipeListItem> readFavoriteData() {
         String query = "SELECT * FROM " + TABLE_NAME;
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -80,9 +84,12 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         if (cursor != null && cursor.moveToFirst()) {
             do {
                 String id = cursor.getString(0);
+                String heading = cursor.getString(2);
                 String image = cursor.getString(1);
                 String name = cursor.getString(3);
-                list.add(new RecipeListItem(id, image, null, name));
+                String instructions = cursor.getString(4);
+
+                list.add(new RecipeListItem(id,heading, image, null, name, instructions));
             } while (cursor.moveToNext());
 
             cursor.close();

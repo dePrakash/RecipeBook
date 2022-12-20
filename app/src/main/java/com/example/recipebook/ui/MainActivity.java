@@ -4,12 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 
 import com.example.recipebook.R;
+import com.example.recipebook.ui.recipelist.RecipeListActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,8 +20,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, RecipeListActivity.class));
         finish();
     }
-
-
 
 //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {
