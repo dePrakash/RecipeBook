@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.recipebook.R;
+import com.squareup.picasso.Picasso;
 
 public class Favorite_Details extends AppCompatActivity {
 
@@ -38,23 +39,31 @@ public class Favorite_Details extends AppCompatActivity {
 
     void getAndSetIntentData(){
         heading = getIntent().getStringExtra("heading");
+        image = getIntent().getStringExtra("image") ;
+        title  =   getIntent().getStringExtra("title");
+        summery = getIntent().getStringExtra("summery");
         Log.d(TAG, "getAndSetIntentData: =====> " + heading);
         heading_fav_details.setText(heading);
         summery_fav_details.setText(summery);
+        Picasso.get().load(image).into(imageView_fav_details);
         title_fav_details.setText(title);
 
         if (getIntent().hasExtra("heading")&& getIntent().hasExtra("image") &&
                 getIntent().hasExtra("title") && getIntent().hasExtra("summery")){
             heading = getIntent().getStringExtra("heading");
 
-            image = getIntent().getStringExtra("image");
-            title = getIntent().getStringExtra("title");
-            summery = getIntent().getStringExtra("summery");
+//            image = getIntent().getStringExtra("image");
+//            title = getIntent().getStringExtra("title");
+//            summery = getIntent().getStringExtra("summery");
 
 
-           heading_fav_details.setText("Oiiiiii");
+//           heading_fav_details.setText(heading);
 //            summery_fav_details.setText(summery);
-            title_fav_details.setText(title);
+//            Picasso.get().load(image).into(imageView_fav_details);
+////            imageView_fav_details.setImageDrawable(image);
+//            title_fav_details.setText(title);
+
+            Log.d(TAG, "getAndSetIntentData: ");
 
 //            imageView_fav_details.setText(image);
 
