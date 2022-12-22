@@ -22,6 +22,7 @@ import com.google.android.material.button.MaterialButton
 import com.google.android.material.progressindicator.CircularProgressIndicator
 import com.google.android.material.textfield.TextInputEditText
 
+
 class RecipeListActivity : AppCompatActivity(), Adapter.OnItemClickListener {
     lateinit var api: RecipeApi
     lateinit var listAdapter: Adapter
@@ -31,7 +32,7 @@ class RecipeListActivity : AppCompatActivity(), Adapter.OnItemClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recipe_list)
 
-        supportActionBar?.title = "Home"
+        supportActionBar?.title = "Home"   // ActionBar name
 
         listAdapter = Adapter(this, this)
         val retrofit = RetrofitClient.getInstance()

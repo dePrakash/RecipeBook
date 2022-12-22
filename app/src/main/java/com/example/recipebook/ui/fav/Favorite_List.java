@@ -42,6 +42,7 @@ public class Favorite_List extends AppCompatActivity implements Adapter.OnItemCl
 
         getSupportActionBar().setTitle("My Favorite List");
         myDB = new MyDataBaseHelper(this);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         setTORs();
         StoreDataInArrays();

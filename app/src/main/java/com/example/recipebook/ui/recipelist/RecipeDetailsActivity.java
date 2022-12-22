@@ -43,7 +43,8 @@ public class RecipeDetailsActivity extends AppCompatActivity {
         progress_d = findViewById(R.id.progress_d);           //progress_d
 
                                                     //down blow the onResult method ::v
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);  //  step 1 ActionBar navigation button
+                                                                // step 2 goto manifest and add ParentActivityName...That's All
 
         api = RetrofitClient.getInstance().create(RecipeApi.class);
 

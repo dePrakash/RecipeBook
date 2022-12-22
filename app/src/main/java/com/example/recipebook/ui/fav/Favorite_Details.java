@@ -41,6 +41,8 @@ public class Favorite_Details extends AppCompatActivity {
         delete_button = findViewById(R.id.delete_button);
         getAndSetIntentData();
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         delete_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

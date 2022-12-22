@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="#CBE8E8"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
@@ -18,18 +19,19 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/search"
-            android:background="#5446B6E8"
-            android:layout_width="match_parent"
+            android:layout_width="282dp"
             android:layout_height="wrap_content"
-            android:inputType="text" />
+            android:background="@drawable/edit_text_curve"
+            app:boxStrokeColor="@null"
+            android:inputType="text"
+            android:textColor="#ED7123" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/search_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="59dp"
+        android:layout_height="52dp"
         android:background="@drawable/shapes"
-        android:text="Search"
         app:icon="@drawable/ic_baseline_search_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/search_container"
@@ -39,6 +41,7 @@
         android:id="@+id/search_results"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#CBE8E8"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
