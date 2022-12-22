@@ -34,6 +34,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
 
     public MyDataBaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        this.context = context;
     }
 
     @Override
@@ -72,6 +73,34 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
 
     } // end step 1 --->
 
+
+    void updateData(String row_id, String IMAGE, String NAME , String INSTRUCTIONS){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_HEADING, IMAGE);
+        cv.put(COLUMN_IMAGE, IMAGE);
+        cv.put(COLUMN_NAME, NAME);
+        cv.put(COLUMN_INSTRUCTION, INSTRUCTIONS);
+//        Log.d(TAG, "updateData ----->: " + row_id + "IMAGE ---- >" + IMAGE +"NAME------>" + NAME +"INSTRUCTIONS------->" + INSTRUCTIONS);
+
+        long result = db.update(TABLE_NAME, cv,"_id=?",new String[]{row_id});
+        if (result == -1){
+            Toast.makeText(context, "Failed To Update", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(context, "Successfully Updated", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void deleteonrow(String row_id){      // Add this deleteonrow to the favorite_details confirmDialog inside onclick method.
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.delete(TABLE_NAME,"id=?", new String[]{row_id});
+        if (result == -1){
+            Toast.makeText(context, "Failed to Delete", Toast.LENGTH_SHORT).show();     // Initialize context 37 th line inside myDataBaseHelper
+        }else{
+            Toast.makeText(context, "Successfully Deleted", Toast.LENGTH_SHORT).show(); // Initialize context 37 th line inside myDataBaseHelper
+        }
+    }
 
     // <--- start step 1  get or read
    public List<RecipeListItem> readFavoriteData() {

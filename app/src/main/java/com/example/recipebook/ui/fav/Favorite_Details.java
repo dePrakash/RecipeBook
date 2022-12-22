@@ -2,22 +2,29 @@ package com.example.recipebook.ui.fav;
 
 import static android.content.ContentValues.TAG;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.recipebook.R;
+import com.example.recipebook.data.MyDataBaseHelper;
 import com.squareup.picasso.Picasso;
 
 public class Favorite_Details extends AppCompatActivity {
 
         TextView heading_fav_details, title_fav_details, summery_fav_details;
         ImageView imageView_fav_details;
+        Button delete_button;
 
-        String heading , image, title, summery;
+        String  id, heading , image, title, summery;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,15 +33,26 @@ public class Favorite_Details extends AppCompatActivity {
         getSupportActionBar().setTitle("My Favorite Details");
 
         // fav_details used id lists
+
         heading_fav_details = findViewById(R.id.heading_fav);
         title_fav_details = findViewById(R.id.title_fav);
         summery_fav_details = findViewById(R.id.summery_fav);
         imageView_fav_details = findViewById(R.id.imageView_fav);
+        delete_button = findViewById(R.id.delete_button);
         getAndSetIntentData();
+
+        delete_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                confirmDialog();
+            }
+        });
     }
+
 
     void getAndSetIntentData(){
         //getString
+        id = getIntent().getStringExtra("id");         // <--- id Initialized here 1 (String 27th line)
         heading = getIntent().getStringExtra("title");    //<---- because it's show image url
         image = getIntent().getStringExtra("image") ;
         title  =   getIntent().getStringExtra("title");
@@ -44,7 +62,7 @@ public class Favorite_Details extends AppCompatActivity {
         Log.d(TAG, "getAndSetIntentData: =====> " + heading); //log check
         heading_fav_details.setText(heading);
         summery_fav_details.setText(summery);
-        Log.d(TAG, "getAndSetIntentData: ===================================>" + summery);   //instruction from fav_list
+//        Log.d(TAG, "getAndSetIntentData: ===================================>" + summery);   //instruction from fav_list
         Picasso.get().load(image).into(imageView_fav_details);
         title_fav_details.setText(title);
 
@@ -52,23 +70,31 @@ public class Favorite_Details extends AppCompatActivity {
                 getIntent().hasExtra("title") && getIntent().hasExtra("summery")){
             heading = getIntent().getStringExtra("heading");
 
-//            image = getIntent().getStringExtra("image");
-//            title = getIntent().getStringExtra("title");
- //           summery = getIntent().getStringExtra("summery");
-
-
-//           heading_fav_details.setText(heading);
-//            summery_fav_details.setText(summery);
-//            Picasso.get().load(image).into(imageView_fav_details);
-////            imageView_fav_details.setImageDrawable(image);
-//            title_fav_details.setText(title);
-
             Log.d(TAG, "getAndSetIntentData: ");
 
-//            imageView_fav_details.setText(image);
-
         }else{
-//            Toast.makeText(this, "No Data", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "No Data.", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    void confirmDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Delete " + heading +" ?");
+        builder.setMessage("You want to delete "+ " ?");
+        builder.setPositiveButton("yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                MyDataBaseHelper myDB = new MyDataBaseHelper(Favorite_Details.this);
+                myDB.deleteonrow(id);   //here added
+                finish();
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        builder.create().show();
     }
 }

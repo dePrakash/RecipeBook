@@ -90,7 +90,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
                 textView.setText(Html.fromHtml("<html><body>"+ details.getInstructions()+"</body></html>"));
                 instruction = ""+details.getInstructions();    // global access dp step 5
 
-                Log.d(TAG, "Summary: " + details.component29());
+//                Log.d(TAG, "Summary: " + details.component29());
 
                 TextView text = (TextView) findViewById(R.id.heading);
                 text.setText(""+details.getSourceName());

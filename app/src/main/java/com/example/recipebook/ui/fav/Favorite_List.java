@@ -40,7 +40,6 @@ public class Favorite_List extends AppCompatActivity implements Adapter.OnItemCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorite_list);
 
-
         getSupportActionBar().setTitle("My Favorite List");
         myDB = new MyDataBaseHelper(this);
 
@@ -83,13 +82,9 @@ public class Favorite_List extends AppCompatActivity implements Adapter.OnItemCl
         intent.putExtra("instruction",item.getInstructions());
 
 //        Log.d(TAG, "onClick:  summery========================================> " + item.getInstructions());
-
 //        Log.d(TAG, "onClick: test single === > " + item.getTitle());
         startActivity(intent);
-
-
 //        Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
-
-    }
+        }
 
 }

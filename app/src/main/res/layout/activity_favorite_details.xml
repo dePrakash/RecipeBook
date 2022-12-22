@@ -8,38 +8,37 @@
 
     <TextView
         android:id="@+id/heading_fav"
-        android:layout_width="400dp"
-        android:layout_height="60dp"
+        android:layout_width="331dp"
+        android:layout_height="66dp"
         android:text="hhhhhhhhhh"
         android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.219"
+        app:layout_constraintHorizontal_bias="0.044"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.027" />
+        app:layout_constraintVertical_bias="0.004" />
 
     <TextView
         android:id="@+id/title_fav"
         android:layout_width="379dp"
         android:layout_height="65dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="28dp"
         android:text="ttttttttttt"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.531"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView_fav" />
 
     <ScrollView
         android:id="@+id/scrollable_fav"
-        android:layout_width="367dp"
-        android:layout_height="281dp"
+        android:layout_width="374dp"
+        android:layout_height="345dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title_fav"
-        app:layout_constraintVertical_bias="0.309">
+        app:layout_constraintVertical_bias="0.0">
 
         <TextView
             android:id="@+id/summery_fav"
@@ -58,13 +57,24 @@
 
     <ImageView
         android:id="@+id/imageView_fav"
-        android:layout_width="387dp"
-        android:layout_height="235dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="405dp"
+        android:layout_height="203dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/heading_fav"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/delete_button"
+        android:layout_width="45dp"
+        android:layout_height="43dp"
+        android:text=""
+        app:icon="@drawable/ic_baseline_delete_24"
+        app:layout_constraintBottom_toTopOf="@+id/imageView_fav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/heading_fav"
+        app:layout_constraintTop_toTopOf="@+id/heading_fav"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
