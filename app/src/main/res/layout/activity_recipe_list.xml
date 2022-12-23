@@ -10,7 +10,9 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/search_container"
-        android:hint="Search Your Favorite Recipes"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        android:hint="Type Your Favorite Recipes"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toStartOf="@id/search_button"

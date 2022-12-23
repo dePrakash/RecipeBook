@@ -25,7 +25,7 @@ import com.squareup.picasso.Picasso;
 
 public class RecipeDetailsActivity extends AppCompatActivity {
      RecipeApi api;
-     CircularProgressIndicator progress_d;  //progress_d
+     private CircularProgressIndicator progress_d;  //progress_d
 
     public String  heading = "";     //  dp  step 1
     public String  title = "";       //  dp  step 2
@@ -40,7 +40,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_recipe_details);
 
-        progress_d = findViewById(R.id.progress_d);           //progress_d
+        progress_d = findViewById(R.id.progress_details);           //progress_d
 
                                                     //down blow the onResult method ::v
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);  //  step 1 ActionBar navigation button
@@ -81,6 +81,8 @@ public class RecipeDetailsActivity extends AppCompatActivity {
 
     private void  getList(String id) {
         new RecipeRepository().getDetails(id, new RecipeRepository.OnDetailResult(){
+
+
 
             @Override
             public void onResult(RecipeDetails details) {
