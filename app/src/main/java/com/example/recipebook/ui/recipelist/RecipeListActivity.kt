@@ -78,7 +78,7 @@ class RecipeListActivity : AppCompatActivity(), Adapter.OnItemClickListener {
         progress.visibility = View.VISIBLE  //progress  3
         RecipeRepository().getResults(string, object : OnResult {
             override fun onResult(recipeListItems: MutableList<RecipeListItem>?) {
-                Toast.makeText(applicationContext, "Success", Toast.LENGTH_LONG).show()
+                Toast.makeText(applicationContext, "Success", Toast.LENGTH_SHORT).show()
                 listAdapter.setRecipeListItems(recipeListItems)
                 progress.visibility = View.GONE   //progress    4
             }
