@@ -10,34 +10,38 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/search_container"
-        app:boxStrokeWidth="0dp"
-        app:boxStrokeWidthFocused="0dp"
-        android:hint="Type Your Favorite Recipes"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:hint="Type Your Favorite Recipes"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
         app:layout_constraintEnd_toStartOf="@id/search_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/search"
-            android:layout_width="282dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:background="@drawable/edit_text_curve"
-            app:boxStrokeColor="@null"
             android:inputType="text"
-            android:textColor="#ED7123" />
+            android:textColor="#ED7123"
+            app:boxStrokeColor="@null" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/search_button"
-        android:layout_width="59dp"
-        android:layout_height="52dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="0dp"
+        android:layout_marginStart="15dp"
         android:background="@drawable/shapes"
         app:icon="@drawable/ic_baseline_search_24"
+        app:layout_constraintBottom_toBottomOf="@+id/search_container"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toEndOf="@id/search_container"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/search_results"

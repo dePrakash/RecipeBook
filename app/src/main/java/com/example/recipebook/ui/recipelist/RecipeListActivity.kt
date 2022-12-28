@@ -57,7 +57,6 @@ class RecipeListActivity : AppCompatActivity(), Adapter.OnItemClickListener {
         val inflater = menuInflater
         inflater.inflate(R.menu.home_menu, menu)
         return true
-
     }
 
 

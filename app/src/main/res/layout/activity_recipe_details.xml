@@ -10,7 +10,7 @@
 
     <TextView
         android:id="@+id/heading"
-        android:layout_width="391dp"
+        android:layout_width="0dp"
         android:layout_height="62dp"
         android:text=""
         android:textSize="25dp"
@@ -23,12 +23,12 @@
 
     <TextView
         android:id="@+id/title_d"
-        android:layout_width="379dp"
+        android:layout_width="0dp"
         android:layout_height="65dp"
         android:layout_marginTop="20dp"
         android:text=""
-        android:textSize="20dp"
         android:textColor="#ED7123"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.531"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,7 +36,7 @@
 
     <ScrollView
         android:id="@+id/scrollable"
-        android:layout_width="367dp"
+        android:layout_width="0dp"
         android:layout_height="281dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,7 +61,7 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="387dp"
+        android:layout_width="0dp"
         android:layout_height="235dp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -69,6 +69,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/heading"
         tools:srcCompat="@tools:sample/avatars" />
+
+
     <com.google.android.material.progressindicator.CircularProgressIndicator
         android:layout_width="wrap_content"
         android:visibility="gone"

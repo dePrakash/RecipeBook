@@ -38,4 +38,12 @@
     <style name="Theme.RecipeBook.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.RecipeBook.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    
+<!--    <style name="Theme.AppStarting" parent="Theme.SplashScreen">-->
+<!--        <item name="windowSplashScreenAnimatedIcon">@mipmap/splash</item>-->
+<!--        <item name="postSplashScreenTheme">@mipmap/ic_launcher</item>-->
+
+<!--    </style>-->
+    
+    
 </resources>
